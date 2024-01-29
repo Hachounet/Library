@@ -1,22 +1,22 @@
 const myLibrary = [];
 
-function Book (name, author, pages, read){
-    this.name = name;
+function Book (title, author, pages, read){
+    this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
     this.info = function() {
-        console.log(this.nameandauthor, this.pages, this.read)
+        console.log(this.title, this.author, this.pages, this.read)
     }
 }
 
 function addBooktoLibrary() {
 
-    let title = document.querySelector("#title").value;
+    let title = document.querySelectorMy("#title").value;
     let author = document.querySelector("#author").value;
     let pages = document.querySelector("#pages").value;
-    let read = document.querySelector("#read").value;
-    const newBook = new Book(title.value, author.value, pages.value, isRead.value);
+    let isRead = document.querySelector("#read").value;
+    const newBook = new Book(title, author, pages, isRead);
     myLibrary.push(newBook);
 
     displayBooks();
@@ -31,7 +31,7 @@ function displayBooks() {
         newDiv.classList.add("card")
 
         const bookTitle = document.createElement("p");
-        bookTitle.textContent = Book.name;
+        bookTitle.textContent = Book.title;
         bookTitle.classList.add("data")
         newDiv.appendChild(bookTitle)
 
@@ -47,7 +47,7 @@ function displayBooks() {
 
         const bookRead = document.createElement("p")
         bookRead.textContent = Book.read;
-        bookPages.classList.add("data")
+        bookRead.classList.add("data")
         newDiv.appendChild(bookRead);
 
         const selectDad = document.getElementById("cardzone");
@@ -61,9 +61,49 @@ function displayBooks() {
 function menubook() {
     const menu = document.createElement("div");
     menu.id = "menu"
-    menu.innerHTML="Test";
     const cardZoneEle= document.getElementById("cardzone")
     cardZoneEle.appendChild(menu);
+    
+    const menuText = document.createElement("p")
+    menuText.id = "menuText"
+    menuText.innerHTML = "Hey you"
+    menu.appendChild(menuText)
+
+    const addTitle = document.createElement("input")
+    addTitle.id = "title"
+    addTitle.setAttribute("placeholder", "Title")
+    addTitle.innerHTML="Title"
+    menu.appendChild(addTitle)
+
+    const addAuthor = document.createElement("input")
+    addAuthor.id= "author"
+    addAuthor.setAttribute("placeholder", "Author")
+    addAuthor.innerHTML="Author"
+    menu.appendChild(addAuthor)
+
+    const addPages = document.createElement("input")
+    addPages.id = "pages"
+    addPages.setAttribute("placeholder", "Pages")
+    addPages.innerHTML="Pages"
+    menu.appendChild(addPages)
+
+    const addRead = document.createElement("input")
+    addRead.id = "read"
+    addRead.setAttribute("placeholder", "Read ?")
+    addRead.innerHTML="Read"
+    menu.appendChild(addRead)
+
+    const buttonsZone = document.createElement("div");
+    buttonsZone.id = "buttonsZone";
+    
+    const addToLibrary = document.createElement("button");
+    addToLibrary.id = "addToBtn";
+    addToLibrary.textContent = "Add book";
+    
+    buttonsZone.appendChild(addToLibrary);
+    menu.appendChild(buttonsZone);
+
+    document.getElementById("addToBtn").addEventListener("click", addBooktoLibrary)
 }
 
 document.getElementById("addbook").addEventListener("click", menubook )
