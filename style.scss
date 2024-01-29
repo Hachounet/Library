@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100dvh;
+}
+
+
+
+
+body {
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-areas: 
+    "header header"
+    "books books"
+    "books books"
+    "books books"
+    "books books"
+    "books books"
+    "books books"
+    "footer footer"
+}
+
+header {
+    grid-area: header;
+    background-color: darkslategray;
+    border-bottom: 2px solid darkolivegreen;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    align-items: center;
+    justify-items: center;
+
+    #title {
+        font-size: 32px;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+
+        grid-column: 2/3;
+    }
+
+    button {
+        grid-column: 1;
+        grid-row: 2;
+
+        background-color:#AFE1AF;
+        height: 50px;
+        width: 50px;
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 2px 4px darkslategray;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+
+    }
+    button:hover{
+        background: rgb(30, 185, 38);
+    }
+
+    button:active {
+        box-shadow: 0 0 2px darkslategray;
+        transform: translateY(2px);
+
+    }
+}
+
+main {
+    grid-area: books;
+    background: darkkhaki;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-auto-flow: column;
+    grid-auto-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+    
+    .card {
+        width: 75%;
+        height: 90%;
+        border: 1px solid whitesmoke;
+        background-color: darkslategray;
+
+        .data {
+            color: whitesmoke;
+        }
+    }
+}
+
+footer {
+    grid-area: footer;
+    background-color: darkslategray;
+    border-top: 2px solid darkolivegreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#menu {
+    
+    height: 200px;
+    width: 200px;
+    justify-self: center;
+    align-self: center;
+    grid-column: 2;
+    background-color: white;
+
+}
