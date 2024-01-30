@@ -33,22 +33,31 @@ function displayBooks() {
         const bookTitle = document.createElement("p");
         bookTitle.textContent = Book.title;
         bookTitle.classList.add("data")
+        bookTitle.id = "bookTitle"
         newDiv.appendChild(bookTitle)
 
         const bookAuthor = document.createElement("p");
         bookAuthor.textContent = Book.author;
         bookAuthor.classList.add("data")
+        bookAuthor.id = "bookAuthor"
         newDiv.appendChild(bookAuthor);
 
         const bookPages = document.createElement("p");
         bookPages.textContent = Book.pages
         bookPages.classList.add("data")
+        bookPages.id = "bookPages"
         newDiv.appendChild(bookPages);
 
         const bookRead = document.createElement("p")
         bookRead.textContent = Book.read;
         bookRead.classList.add("data")
+        bookRead.id = "bookRead"
         newDiv.appendChild(bookRead);
+
+        const deleteBtn = document.createElement("button")
+        deleteBtn.textContent = "Delete"
+        deleteBtn.id = "deleteBtn"
+        newDiv.appendChild(deleteBtn)
 
         const selectDad = document.getElementById("cardzone");
         selectDad.appendChild(newDiv);

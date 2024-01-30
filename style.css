@@ -17,6 +17,23 @@ body {
   grid-template-areas: "header header" "books books" "books books" "books books" "books books" "books books" "books books" "footer footer";
 }
 
+button {
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px darkslategray;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#deleteBtn {
+  grid-column: 3;
+  justify-self: center;
+  align-self: center;
+  background-color: red;
+}
+
 header {
   grid-area: header;
   background-color: darkslategray;
@@ -35,22 +52,15 @@ header #titleheader {
   font-weight: 400;
   grid-column: 2/3;
 }
-header button {
+header #addbook {
   grid-column: 1;
   grid-row: 2;
   background-color: #AFE1AF;
-  height: 50px;
-  width: 50px;
-  border: none;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px darkslategray;
-  cursor: pointer;
-  transition: all 0.2s ease;
 }
-header button:hover {
+header #addbook:hover {
   background: rgb(30, 185, 38);
 }
-header button:active {
+header #addbook:active {
   box-shadow: 0 0 2px darkslategray;
   transform: translateY(2px);
 }
@@ -71,9 +81,34 @@ main .card {
   height: 90%;
   border: 1px solid whitesmoke;
   background-color: darkslategray;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: repeat(5, 1fr);
 }
 main .card .data {
   color: whitesmoke;
+  grid-column: 2;
+  align-self: flex-start;
+  justify-self: center;
+}
+main .card #bookTitle {
+  grid-row: 2;
+}
+main .card #bookAuthor {
+  grid-row: 3;
+}
+main .card #bookPages {
+  grid-row: 4;
+}
+main .card #bookRead {
+  grid-row: 5;
+}
+
+#buttonszone {
+  display: flex;
+  gap: 16px;
 }
 
 footer {
@@ -87,7 +122,7 @@ footer {
 
 #menu {
   height: 150%;
-  width: 25%;
+  width: 20%;
   z-index: 1;
   justify-self: center;
   align-self: center;
