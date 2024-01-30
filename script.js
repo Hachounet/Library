@@ -12,11 +12,11 @@ function Book (title, author, pages, read){
 
 function addBooktoLibrary() {
 
-    let title = document.querySelectorMy("#title").value;
-    let author = document.querySelector("#author").value;
-    let pages = document.querySelector("#pages").value;
-    let isRead = document.querySelector("#read").value;
-    const newBook = new Book(title, author, pages, isRead);
+    let title = document.getElementById("title").value;
+    let author = document.getElementById("author").value;
+    let pages = document.getElementById("pages").value;
+    let read = document.getElementById("read").value;
+    const newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
 
     displayBooks();
@@ -58,6 +58,13 @@ function displayBooks() {
 
 }
 
+function menuBook() {
+    let menu = document.getElementById("menu");
+
+    menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "grid" : "none";
+
+}
+/*
 function menubook() {
     const menu = document.createElement("div");
     menu.id = "menu"
@@ -67,31 +74,32 @@ function menubook() {
     const menuText = document.createElement("p")
     menuText.id = "menuText"
     menuText.innerHTML = "Hey you"
-    menu.appendChild(menuText)
+    menu.appendChild(menuText);
 
     const addTitle = document.createElement("input")
     addTitle.id = "title"
+    addTitle.setAttribute("type", "text")
     addTitle.setAttribute("placeholder", "Title")
-    addTitle.innerHTML="Title"
-    menu.appendChild(addTitle)
+    addTitle.setAttribute("value", "Title" )
+    menu.appendChild(addTitle);
 
-    const addAuthor = document.createElement("input")
-    addAuthor.id= "author"
-    addAuthor.setAttribute("placeholder", "Author")
-    addAuthor.innerHTML="Author"
-    menu.appendChild(addAuthor)
+    const addAuthor = document.createElement("input");
+    addAuthor.id= "author";
+    addAuthor.setAttribute("placeholder", "Author");
+    addAuthor.innerHTML="Author";
+    menu.appendChild(addAuthor);
 
-    const addPages = document.createElement("input")
-    addPages.id = "pages"
-    addPages.setAttribute("placeholder", "Pages")
-    addPages.innerHTML="Pages"
-    menu.appendChild(addPages)
+    const addPages = document.createElement("input");
+    addPages.id = "pages";
+    addPages.setAttribute("placeholder", "Pages");
+    addPages.innerHTML="Pages";
+    menu.appendChild(addPages);
 
-    const addRead = document.createElement("input")
-    addRead.id = "read"
-    addRead.setAttribute("placeholder", "Read ?")
-    addRead.innerHTML="Read"
-    menu.appendChild(addRead)
+    const addRead = document.createElement("input");
+    addRead.id = "read";
+    addRead.setAttribute("placeholder", "Read ?");
+    addRead.innerHTML="Read";
+    menu.appendChild(addRead);
 
     const buttonsZone = document.createElement("div");
     buttonsZone.id = "buttonsZone";
@@ -103,7 +111,9 @@ function menubook() {
     buttonsZone.appendChild(addToLibrary);
     menu.appendChild(buttonsZone);
 
-    document.getElementById("addToBtn").addEventListener("click", addBooktoLibrary)
+    document.getElementById("addToBtn").addEventListener("click", addBooktoLibrary);
 }
+*/
 
-document.getElementById("addbook").addEventListener("click", menubook )
+document.getElementById("addbook").addEventListener("click", menuBook );
+document.getElementById("addToBtn").addEventListener("click", addBooktoLibrary);
