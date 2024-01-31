@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto"
 }
 
 html {
@@ -42,48 +43,7 @@ button {
 }
 
 // adding pure css toggle switch to try // 
-input[type=checkbox]{
-    height: 0;
-    width: 0;
-    visibility: hidden;
-  }
-  
-  label {
-    cursor: pointer;
-    text-indent: -9999px;
-    width: 200px;
-    height: 100px;
-    background: grey;
-    display: block;
-    border-radius: 100px;
-    position: relative;
-  }
-  
-  label:after {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    width: 90px;
-    height: 90px;
-    background: #fff;
-    border-radius: 90px;
-    transition: 0.3s;
-  }
-  
-  input:checked + label {
-    background: #bada55;
-  }
-  
-  input:checked + label:after {
-    left: calc(100% - 5px);
-    transform: translateX(-100%);
-  }
-  
-  label:active:after {
-    width: 130px;
-  }
-  
+
 
 .deleteBtn {
 
@@ -96,7 +56,7 @@ input[type=checkbox]{
 
 header {
     grid-area: header;
-    background-color: darkslategray;
+    background-color: #464D77;
     border-bottom: 2px solid darkolivegreen;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -109,11 +69,13 @@ header {
     justify-items: center;
 
     #titleheader {
-        font-size: 32px;
+        font-size: 2.5rem;
         font-family: "Roboto", sans-serif;
         font-weight: 400;
 
         grid-column: 2/3;
+        grid-row: 2;
+        align-self: baseline;
     }
 
 
@@ -139,7 +101,7 @@ header {
 
 main {
     grid-area: books;
-    background: darkkhaki;
+    background: #F4EDED;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -152,7 +114,7 @@ main {
         width: 75%;
         height: 90%;
         border: 1px solid whitesmoke;
-        background-color: darkslategray;
+        background-color: #877666;
         border-radius: 30px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
@@ -168,19 +130,20 @@ main {
             justify-self: center;
         }
 
-        #bookTitle {
+        .bookTitle {
             grid-row: 2;
         }
 
-        #bookAuthor {
+        .bookAuthor {
             grid-row: 3;
         }
-        #bookPages {
+        .bookPages {
             grid-row: 4;
         }
 
-        #bookRead {
+        .bookRead {
             grid-row: 5;
+            grid-column: 2;
         }
     }
 }
@@ -192,7 +155,7 @@ main {
 
 footer {
     grid-area: footer;
-    background-color: darkslategray;
+    background-color: #464D77;
     border-top: 2px solid darkolivegreen;
     display: flex;
     justify-content: center;
@@ -223,6 +186,9 @@ footer {
         font-size: 32px;
     }
 
+    .addinput {
+        
+    }
 
 }
 
