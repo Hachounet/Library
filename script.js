@@ -26,9 +26,10 @@ function addBooktoLibrary() {
 function displayBooks() {
     document.getElementById("cardzone").innerHTML = ""
 
-    myLibrary.forEach((Book) => {
+    myLibrary.forEach((Book, index) => {
         const newDiv = document.createElement("div");
         newDiv.classList.add("card")
+        newDiv.dataset.number = index;
 
         const bookTitle = document.createElement("p");
         bookTitle.textContent = Book.title;
@@ -54,10 +55,15 @@ function displayBooks() {
         bookRead.id = "bookRead"
         newDiv.appendChild(bookRead);
 
-        const deleteBtn = document.createElement("button")
-        deleteBtn.textContent = "Delete"
-        deleteBtn.id = "deleteBtn"
-        newDiv.appendChild(deleteBtn)
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.classList.add("deleteBtn");
+        deleteBtn.addEventListener("click", () => {
+            myLibrary.splice(index, 1);
+            displayBooks();
+        });
+        newDiv.appendChild(deleteBtn);
+
 
         const selectDad = document.getElementById("cardzone");
         selectDad.appendChild(newDiv);
@@ -73,56 +79,7 @@ function menuBook() {
     menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "grid" : "none";
 
 }
-/*
-function menubook() {
-    const menu = document.createElement("div");
-    menu.id = "menu"
-    const cardZoneEle= document.getElementById("cardzone")
-    cardZoneEle.appendChild(menu);
-    
-    const menuText = document.createElement("p")
-    menuText.id = "menuText"
-    menuText.innerHTML = "Hey you"
-    menu.appendChild(menuText);
 
-    const addTitle = document.createElement("input")
-    addTitle.id = "title"
-    addTitle.setAttribute("type", "text")
-    addTitle.setAttribute("placeholder", "Title")
-    addTitle.setAttribute("value", "Title" )
-    menu.appendChild(addTitle);
-
-    const addAuthor = document.createElement("input");
-    addAuthor.id= "author";
-    addAuthor.setAttribute("placeholder", "Author");
-    addAuthor.innerHTML="Author";
-    menu.appendChild(addAuthor);
-
-    const addPages = document.createElement("input");
-    addPages.id = "pages";
-    addPages.setAttribute("placeholder", "Pages");
-    addPages.innerHTML="Pages";
-    menu.appendChild(addPages);
-
-    const addRead = document.createElement("input");
-    addRead.id = "read";
-    addRead.setAttribute("placeholder", "Read ?");
-    addRead.innerHTML="Read";
-    menu.appendChild(addRead);
-
-    const buttonsZone = document.createElement("div");
-    buttonsZone.id = "buttonsZone";
-    
-    const addToLibrary = document.createElement("button");
-    addToLibrary.id = "addToBtn";
-    addToLibrary.textContent = "Add book";
-    
-    buttonsZone.appendChild(addToLibrary);
-    menu.appendChild(buttonsZone);
-
-    document.getElementById("addToBtn").addEventListener("click", addBooktoLibrary);
-}
-*/
 
 document.getElementById("addbook").addEventListener("click", menuBook );
 document.getElementById("addToBtn").addEventListener("click", addBooktoLibrary);
