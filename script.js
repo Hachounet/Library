@@ -58,8 +58,11 @@ function displayBooks() {
         newDiv.appendChild(bookRead);
 
         const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "Delete";
+        deleteBtn.textContent = "X";
         deleteBtn.classList.add("deleteBtn");
+        deleteBtn.id = "deleteBtn"+ index;
+
+
         deleteBtn.addEventListener("click", () => {
             myLibrary.splice(index, 1);
             displayBooks();

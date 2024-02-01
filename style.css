@@ -2,12 +2,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
 }
 
+@font-face {
+  font-family: "RatherlafiaForghive";
+  src: url(RatherlafiaForghive-BWDZl.woff) format(woff);
+}
 html {
   height: 100dvh;
-  --color-title: #0073BF;
+  --color-title: #87CFFF;
   --color-border: #00406c;
 }
 
@@ -20,43 +24,129 @@ body {
   grid-template-areas: "header header" "books books" "books books" "books books" "books books" "books books" "books books" "footer footer";
 }
 
-button {
-  height: 50px;
-  width: 50px;
-  border: none;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px darkslategray;
+.generalBtns, .deleteBtn {
+  display: inline-block;
+  outline: 0;
+  border: 0;
   cursor: pointer;
-  transition: all 0.2s ease;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 30px;
+  padding: 0px 15px;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px 3px 8px;
+  background: linear-gradient(92.88deg, rgb(69, 94, 181) 9.16%, rgb(86, 67, 204) 43.89%, rgb(103, 63, 215) 64.72%);
+  transition: all 0.5s ease 0s;
+}
+.generalBtns.generalBtns:hover, .deleteBtn.generalBtns:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0px 1px 40px;
+  transition: all 0.1s ease 0s;
 }
 
-.deleteBtn {
+#cardzone [id^=deleteBtn] {
   grid-column: 3;
   justify-self: center;
   align-self: center;
-  background-color: red;
+}
+#cardzone [id^=deleteBtn]:hover {
+  background-color: red !important;
+}
+
+.toggle {
+  --width: 80px;
+  --height: calc(var(--width) / 3);
+  position: relative;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: var(--height);
+  background-color: white;
+  cursor: pointer;
+}
+.toggle input {
+  display: none;
+}
+.toggle input:checked + .slider {
+  background-color: #2196F3;
+}
+.toggle input:checked + .slider::before {
+  transform: translateX(calc(var(--width) - var(--height)));
+}
+.toggle input:checked ~ .labels::after {
+  opacity: 0;
+}
+.toggle input:checked ~ .labels::before {
+  opacity: 1;
+}
+.toggle .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--height);
+  background-color: #ccc;
+  transition: all 0.4s ease-in-out;
+}
+.toggle .slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--height));
+  height: calc(var(--height));
+  border-radius: calc(var(--height) / 2);
+  background-color: #fff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease-in-out;
+}
+.toggle .labels {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 10px;
+  font-family: sans-serif;
+  transition: all 0.4s ease-in-out;
+}
+.toggle .labels::after {
+  content: attr(data-off);
+  position: absolute;
+  right: 5px;
+  color: #4d4d4d;
+  opacity: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s ease-in-out;
+}
+.toggle .labels::before {
+  content: attr(data-on);
+  position: absolute;
+  left: 5px;
+  opacity: 0;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+  transition: all 0.4s ease-in-out;
 }
 
 header {
   grid-area: header;
   background-color: #001a2c;
   border-bottom: 2px solid var(--color-border);
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 1fr 2fr;
   align-items: center;
   justify-items: center;
 }
 header #titleheader {
-  font-size: 2.5rem;
-  font-family: "Roboto", sans-serif;
+  font-size: 2.7rem;
   font-weight: 400;
+  font-family: "RatherlafiaForghive", sans-serif;
+  color: var(--color-title);
   grid-column: 2/3;
   grid-row: 2;
   align-self: baseline;
-  color: var(--color-title);
 }
 header #addbook {
   grid-column: 1;
