@@ -50,7 +50,7 @@ body {
   align-self: center;
 }
 #cardzone [id^=deleteBtn]:hover {
-  background-color: red !important;
+  background: red !important;
 }
 
 .toggle {
@@ -148,6 +148,10 @@ header #titleheader {
   grid-row: 2;
   align-self: baseline;
 }
+header #titleheader:hover {
+  text-shadow: rgba(255, 255, 255, 0.877) 0px 1px 40px;
+  transition: all 0.1s ease 0s;
+}
 header #addbook {
   grid-column: 1;
   grid-row: 2;
@@ -171,6 +175,10 @@ main {
   grid-auto-rows: 1fr;
   justify-items: center;
   align-items: center;
+}
+main p {
+  font-family: "Freshener";
+  font-size: 1rem;
 }
 main .card {
   width: 75%;

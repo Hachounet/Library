@@ -39,6 +39,7 @@ body {
     "footer footer"
 }
 
+
 // CSS for buttons. WIP = Need to work on hovering .deleteBtn to make backgroundcolor red ( Specificties problem ? )
 
 .generalBtns, .deleteBtn {
@@ -63,6 +64,7 @@ body {
         transition: all 0.1s ease 0s;
     }
 
+
 }
 
 #cardzone [id^="deleteBtn"] {
@@ -72,7 +74,7 @@ body {
     align-self: center;
 
     &:hover {
-        background-color: red !important;
+        background: red !important;
     }
 }
 
@@ -190,6 +192,10 @@ header {
         grid-row: 2;
         align-self: baseline;
 
+        &:hover {
+        text-shadow: rgba(255, 255, 255, 0.877) 0px 1px 40px;
+        transition: all 0.1s ease 0s;
+        }
     }
 
 
@@ -223,6 +229,11 @@ main {
     grid-auto-rows: 1fr;
     justify-items: center;
     align-items: center;
+
+    p {
+        font-family: "Freshener";
+        font-size: 1rem;
+    }
 
     .card {
         width: 75%;

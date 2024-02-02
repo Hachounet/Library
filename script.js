@@ -13,14 +13,25 @@ function Book (title, author, pages, read){
 
 function addBooktoLibrary() {
 
-    let title = document.getElementById("title").value;
-    let author = document.getElementById("author").value;
-    let pages = document.getElementById("pages").value;
-    let read = document.getElementById("read").checked;
+    let titleInput = document.getElementById("title");
+    let authorInput = document.getElementById("author");
+    let pagesInput = document.getElementById("pages");
+    let readInput = document.getElementById("read");
+
+    let title = titleInput.value;
+    let author = authorInput.value;
+    let pages = pagesInput.value;
+    let read = readInput.checked;
+
     const newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
 
     displayBooks();
+
+    titleInput.value = "";
+    authorInput.value = "";
+    pagesInput.value = "";
+    readInput.checked = false;
 }
 
 
@@ -47,15 +58,34 @@ function displayBooks() {
         bookPages.classList.add("data", "bookPages");
         newDiv.appendChild(bookPages);
 
-        const bookRead = document.createElement("input");
-        bookRead.setAttribute("type", "checkbox");
-        bookRead.checked = book.read;
-        bookRead.id = "checkbox" + index;
+
+        const bookRead = document.createElement("div");
         bookRead.className = "bookRead";
-        bookRead.addEventListener("click", () => {
-            myLibrary[index].read = bookRead.checked;
-        });
+        bookRead.classList.add("data")
         newDiv.appendChild(bookRead);
+
+        const bookReadLabel = document.createElement("label");
+        bookReadLabel.classList.add("toggle");
+        bookRead.appendChild(bookReadLabel)
+
+        const bookReadInput = document.createElement("input");
+        bookReadInput.setAttribute("type", "checkbox");
+        bookReadInput.checked = book.read;
+        bookReadInput.id = "checkbox" + index;
+        bookReadInput.addEventListener("click", () => {
+            myLibrary[index].read = bookReadInput.checked;
+        });
+        bookReadLabel.appendChild(bookReadInput);
+
+        const bookReadSpan = document.createElement("span");
+        bookReadSpan.classList.add("slider");
+        bookReadLabel.appendChild(bookReadSpan);
+
+        const bookReadSpan2 = document.createElement("span");
+        bookReadSpan2.classList.add("labels");
+        bookReadSpan2.setAttribute("data-on", "READ")
+        bookReadSpan2.setAttribute("data-off", "UNREAD")
+        bookReadLabel.appendChild(bookReadSpan2);
 
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "X";
@@ -83,4 +113,6 @@ function menuBook() {
 
 
 document.getElementById("addbook").addEventListener("click", menuBook );
+
+document.getElementById("closeBtn").addEventListener("click", menuBook);
 document.getElementById("addToBtn").addEventListener("click", addBooktoLibrary);

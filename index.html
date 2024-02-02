@@ -14,36 +14,38 @@
     <link href="https://fonts.cdnfonts.com/css/ratherlafia-forghive" rel="stylesheet">
                 
 
+    <!-- Adding charmograph font-->
+    <link href="https://fonts.cdnfonts.com/css/freshener" rel="stylesheet">
 </head>
 <body>
 
     <div id="menu" class="form_group">
         <p>Add your book</p>
-        <p></p>
+        
         <div class="form_group" id="titlediv">
-        <input class="form_input" id="title" type="text" placeholder="Title" required="">
+        <input class="form_input" id="title" type="text" placeholder="Title" required />
         <label for="title" class="form_label">Title</label>
         </div>
 
         <div class="form_group" id="authordiv">
-        <input class="form_input" id="author" type="text" placeholder="Author" required="">
+        <input class="form_input" id="author" type="text" placeholder="Author" required="required"/>
         <label for="author" class="form_label">Author</label>
         </div>
 
         <div class="form_group" id="pagesdiv">
-        <input class="form_input" id="pages" type="text" placeholder="Pages" required="">
+        <input class="form_input" id="pages" type="number" placeholder="Pages" required=""/>
         <label for="pages" class="form_label">Pages</label>
         </div>
         <div id="readdiv">
         <label class="toggle">
-        <input class="addinput" type="checkbox" class="bookRead" id="read">
+        <input type="checkbox" class="bookRead" id="read">
         <span class="slider"></span>
         <span class="labels" data-on="READ" data-off="UNREAD"></span>
         </label>
         </div>
         <div id="buttonszone">
             <button id="addToBtn" class="generalBtns">Add book</button>
-            <button class="generalBtns">Clear</button>
+            <button class="generalBtns" id="closeBtn">Close</button>
         </div>
     </div>
 
