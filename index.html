@@ -1,67 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>Library</title>
-    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="style.css"
+    />
     <!-- adding Roboto font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- adding Ratherlafia font-->
-    <link href="https://fonts.cdnfonts.com/css/ratherlafia-forghive" rel="stylesheet">
-                
+    <link
+      href="https://fonts.cdnfonts.com/css/ratherlafia-forghive"
+      rel="stylesheet"
+    />
 
     <!-- Adding charmograph font-->
-    <link href="https://fonts.cdnfonts.com/css/freshener" rel="stylesheet">
-</head>
-<body>
+    <link
+      href="https://fonts.cdnfonts.com/css/freshener"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div
+      id="menu"
+      class="form_group"
+    >
+      <p>Add your book</p>
 
-    <div id="menu" class="form_group">
-        <p>Add your book</p>
-        
-        <div class="form_group" id="titlediv">
-        <input class="form_input" id="title" type="text" placeholder="Title" required />
-        <label for="title" class="form_label">Title</label>
-        </div>
+      <div
+        class="form_group"
+        id="titlediv"
+      >
+        <input
+          class="form_input"
+          id="title"
+          type="text"
+          placeholder="Title"
+          minlength="3"
+          required
+        />
+        <label
+          for="title"
+          class="form_label"
+          >Title</label
+        >
+      </div>
 
-        <div class="form_group" id="authordiv">
-        <input class="form_input" id="author" type="text" placeholder="Author" required="required"/>
-        <label for="author" class="form_label">Author</label>
-        </div>
+      <div
+        class="form_group"
+        id="authordiv"
+      >
+        <input
+          class="form_input"
+          id="author"
+          type="text"
+          minlength="3"
+          placeholder="Author"
+          required="required"
+        />
+        <label
+          for="author"
+          class="form_label"
+          >Author</label
+        >
+      </div>
 
-        <div class="form_group" id="pagesdiv">
-        <input class="form_input" id="pages" type="number" placeholder="Pages" required=""/>
-        <label for="pages" class="form_label">Pages</label>
-        </div>
-        <div id="readdiv">
+      <div
+        class="form_group"
+        id="pagesdiv"
+      >
+        <input
+          class="form_input"
+          id="pages"
+          type="number"
+          placeholder="Pages"
+          required="true"
+          min="5"
+        />
+        <label
+          for="pages"
+          class="form_label"
+          >Pages</label
+        >
+      </div>
+      <div id="readdiv">
         <label class="toggle">
-        <input type="checkbox" class="bookRead" id="read">
-        <span class="slider"></span>
-        <span class="labels" data-on="READ" data-off="UNREAD"></span>
+          <input
+            type="checkbox"
+            class="bookRead"
+            id="read"
+          />
+          <span class="slider"></span>
+          <span
+            class="labels"
+            data-on="READ"
+            data-off="UNREAD"
+          ></span>
         </label>
-        </div>
-        <div id="buttonszone">
-            <button id="addToBtn" class="generalBtns">Add book</button>
-            <button class="generalBtns" id="closeBtn">Close</button>
-        </div>
+      </div>
+      <div id="buttonszone">
+        <button
+          id="addToBtn"
+          class="generalBtns"
+        >
+          Add book
+        </button>
+        <button
+          class="generalBtns"
+          id="closeBtn"
+        >
+          Close
+        </button>
+      </div>
     </div>
 
     <header>
-        <div id="titleheader">Library</div>
-        <button id="addbook" class="generalBtns">+</button>
+      <div id="titleheader">Library</div>
+      <button
+        id="addbook"
+        class="generalBtns"
+      >
+        +
+      </button>
     </header>
 
     <main id="cardzone"></main>
 
-    
     <footer>
-        <div id="footersentence">Created by Hachounet during The Odin Project Curriculum.</div>
-
+      <div id="footersentence">
+        Created by Hachounet during The Odin Project Curriculum.
+      </div>
     </footer>
-    
-<script type="text/javascript" src="script.js"></script>
-</body>
+
+    <script
+      type="text/javascript"
+      src="script.js"
+    ></script>
+  </body>
 </html>
